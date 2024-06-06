@@ -20,6 +20,13 @@ function validMove(x, y) {
 }
 
 function knightMoves() {
+/**
+ * @param {number[]} start
+ * @param {number[]} end
+ *
+ * @returns {number[][]}
+ */
+export function knightMoves(start, end) {
     const moves = [
         [1, 2],
         [1, -2],
@@ -30,4 +37,14 @@ function knightMoves() {
         [-2, 1],
         [-2, -1],
     ];
+
+    if (!validMove(start[0], start[1]))
+        throw new RangeError(
+            "Start points out of range. Provide points between 0 and 7.",
+        );
+
+    if (!validMove(end[0], end[1]))
+        throw new RangeError(
+            "End points out of range. Provide points between 0 and 7.",
+        );
 }
