@@ -1,3 +1,15 @@
+class GraphNode {
+    /**
+     * @constructor
+     * @param {number[]} point
+     * @param {number[][]} path
+     */
+    constructor(point, path) {
+        this.point = point;
+        this.path = path;
+    }
+}
+
 /**
  * @param {number} x
  * @param {number} y
