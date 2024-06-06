@@ -1,0 +1,10 @@
+{
+    "name": "knights-travails",
+    "version": "1.0.0",
+    "description": "JavaScript implementation of the Odin Project exercise \"Knights Travails\"",
+    "main": "index.js",
+    "type": "module",
+    "keywords": [],
+    "author": "",
+    "license": "GPL-3.0-only"
+}
