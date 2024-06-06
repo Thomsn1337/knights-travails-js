@@ -47,4 +47,21 @@ export function knightMoves(start, end) {
         throw new RangeError(
             "End points out of range. Provide points between 0 and 7.",
         );
+
+    const queue = [new GraphNode(start, [start])];
+    const visited = new Set();
+    visited.add(start);
+
+    while (queue.length) {
+        const current = queue.shift();
+        if (!current) {
+            throw new Error("No element in queue");
+        }
+
+        const [x, y] = current.point;
+
+        if (end[0] === x && end[1] === y) return current.path;
+    }
+
+    return [];
 }
