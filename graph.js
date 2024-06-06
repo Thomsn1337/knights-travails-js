@@ -19,7 +19,6 @@ function validMove(x, y) {
     return x >= 0 && x <= 7 && y >= 0 && y <= 7;
 }
 
-function knightMoves() {
 /**
  * @param {number[]} start
  * @param {number[]} end
@@ -61,6 +60,22 @@ export function knightMoves(start, end) {
         const [x, y] = current.point;
 
         if (end[0] === x && end[1] === y) return current.path;
+
+        moves.forEach((move) => {
+            const [dx, dy] = move;
+
+            const newX = x + dx;
+            const newY = y + dy;
+
+            const newPoint = [newX, newY];
+
+            if (validMove(newX, newY) && !visited.has(newPoint)) {
+                visited.add(newPoint);
+                queue.push(
+                    new GraphNode(newPoint, current.path.concat([newPoint])),
+                );
+            }
+        });
     }
 
     return [];
